@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Get the path to the boop script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+
+# Set the PROJECT_ROOT_DIR variable to the directory one level above the script
+PROJECT_ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+
+# Activate the virtual environment
+source "$PROJECT_ROOT_DIR/.venv/bin/activate"
+
+# Execute the Python script (assuming it's still named cli.py)
+python "$PROJECT_ROOT_DIR/cli.py" "$@"
